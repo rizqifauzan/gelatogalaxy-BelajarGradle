@@ -2,7 +2,9 @@ plugins {
     id 'java'
 }
 
-Task greetingTask() {
+tasks.register('greetingTask') {
+    group = 'greeting'
+    description = 'Prints a greeting message. Use -Pnama=<name> to customize.'
     doLast {
         String nama = project.hasProperty('nama') ? project.property('nama') : 'Gradle User'
         println "Hello, $nama! Welcome to Gradle World!"
